@@ -1,5 +1,4 @@
 package gsu.edu.library.controller;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class LibraryUserController {
 	public String home() {			
 		return "home";
 	}
-	
+	//////////////////////////////////////////////start signup////////////////////
 	@GetMapping("/signup")
 	public String showSignupForm(Model model) {
 		
@@ -69,5 +68,19 @@ public class LibraryUserController {
 		//redirect to home screen
 		return "redirect:/";
 	}
-
+//////////////////////////////////////////////end signup////////////////////
+	
+//////////////////////////////////////////////start signin////////////////////
+	@GetMapping("/signin")
+	public String showSigninForm(Model model) {
+		//DO something
+		return "user/sign_in";
+	}
+	
+	@PostMapping("/signin")
+	public String signinForm(Model model) {
+		//DO something
+		return "";
+	}
+//////////////////////////////////////////////end signin////////////////////
 }

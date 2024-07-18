@@ -9,27 +9,31 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <title>Save LibraryUser</title>
+    <title>add books</title>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container mt-4">
     <a class="navbar-brand" href="javascript:void(0)">Library App</a>
     
+    <div class="d-flex justify-content-end">
+        <a th:href="@{/}" class="btn btn-primary d-flex">Sign out</a>
+    </div>
   </div>
 </nav>
 
-    <div class="container-fluid mt-3">
-     <div class="row h-100 justify-content-center align-items-center">
+    <div class="container">
         <h3>Library App</h3>
-        <hr>        
-
-        <a th:href="@{/signin}" class="btn btn-success btn-sm mb-3">Sign In</a>
-        <a th:href="@{/signup}" class="btn btn-primary btn-sm mb-3">Sign Up</a>
-
+        <hr>
         
-    </div>
+        <p class="h4 mb-4">Add Books</p>
+          
+          <h3>////////  DO Something //////////////////////////////</h3>                
+<!-- DO Something -->
+
+        <hr>
+        <a th:href="@{/}">Back to Home</a>
+        
     </div>
 
 </body>
