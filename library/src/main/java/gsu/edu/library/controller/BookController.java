@@ -39,13 +39,13 @@ public class BookController {
 //////////////////////////////////////////////end add book////////////////////	
 	
 //////////////////////////////////////////////start add book////////////////////	
-//@GetMapping("/editbook")
-//public String getPageForEditBooks(Model model) {
-////Do something
-//return "books/add_books";
-//}
+	@GetMapping("/editbook")
+	public String getPageForEditBooks(Model model) {
+		////Do something
+	return "books/add_books";
+	}
 //@PostMapping("/addbook")
-//public String postEditBooks(Model model) {
+public String postEditBooks(Model model) {
 ////Do something
 //return "redirect:/books";
 //}
