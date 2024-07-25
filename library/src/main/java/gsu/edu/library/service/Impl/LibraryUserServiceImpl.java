@@ -38,5 +38,6 @@ public class LibraryUserServiceImpl implements LibraryUserService{
 	public LibraryUser findByEmail(String email) {
 		return userRepository.findByEmail(email);
 	}
+	
 
 }
