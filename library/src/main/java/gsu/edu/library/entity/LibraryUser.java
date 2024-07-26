@@ -36,6 +36,7 @@ public class LibraryUser {
 		this.password = password;
 		this.userType = userType;
 	}
+	
 	public int getId() {
 		return id;
 	}

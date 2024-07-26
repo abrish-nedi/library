@@ -28,13 +28,32 @@
         
         <p class="h4 mb-4">Sign In</p>
         
-     
+ <!-- 
 	<a th:href="@{/books}"
 		class="btn btn-primary btn-sm mb-3">
 		temporary button to navigate to books
-	</a>
+	</a>  -->
 	
-                       <h3>////////  DO Something  //////////////////////////////</h3>
+	        <div th:if="${errormsg}">
+           <h3 th:class="text-danger">Invalid email or password</h3>
+           </div>
+	
+                  <form action="#" th:action="@{/signin}" th:object="${libraryuser}" method="POST">
+        
+            
+
+            <input type="text" th:field="*{email}" th:required="true"
+                   class="form-control mb-4 w-25" placeholder="Email">
+                   
+            <input type="text" th:field="*{password}" th:required="true"
+                   class="form-control mb-4 w-25" placeholder="Password">
+                   
+ 
+
+            <button type="submit" class="btn btn-info col-2">Sign In</button>
+            
+        </form>
+                      
 
         <hr>
         <a th:href="@{/}">Back to Home</a>
