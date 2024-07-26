@@ -27,9 +27,14 @@ public class Book {
 	private int copies;
 	@Column(name="rental_status")
 	private String rentalStatus;
+	@Column(name="user_id")
+	private int userId;
 	
 	public Book() {}
-	public Book(int id, String author, String genre, String title, int yearPublished, int copies, String rentalStatus) {
+
+	
+	public Book(int id, String author, String genre, String title, int yearPublished, int copies, String rentalStatus,
+			int userId) {
 		super();
 		this.id = id;
 		this.author = author;
@@ -38,6 +43,15 @@ public class Book {
 		this.yearPublished = yearPublished;
 		this.copies = copies;
 		this.rentalStatus = rentalStatus;
+		this.userId = userId;
+	}
+
+
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public int getId() {
 		return id;

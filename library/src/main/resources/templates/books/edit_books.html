@@ -26,10 +26,13 @@
         <h3>Library App</h3>
         <hr>
         
-        <p class="h4 mb-4">Add Books</p> 
+        <p class="h4 mb-4">Edit Books</p> 
                        
-          <form action="#" th:action="@{/addbook}" th:object="${thebook}" method="POST">
+          <form action="#" th:action="@{/editbook}" th:object="${thebook}" method="POST">
         
+        <input type="hidden" th:field="*{id}" th:required="true"
+                   class="form-control mb-4 w-25" >
+                   
              <input type="text" th:field="*{author}" th:required="true"
                    class="form-control mb-4 w-25" placeholder="Author">
 
@@ -49,7 +52,7 @@
                <option th:each="option : ${bookstatus}" th:value="${option.value}" th:text="${option.displayMessage}"></option>
             </select>
 
-            <button type="submit" class="btn btn-info col-2">Save Book</button>
+            <button type="submit" class="btn btn-info col-2">Edit Book</button>
             
         </form>
 
