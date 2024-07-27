@@ -97,20 +97,6 @@ public class BookController {
 	}
 //////////////////////////////////////////////end add book////////////////////	
 	
-<<<<<<< HEAD
-//////////////////////////////////////////////start add book////////////////////	
-	@GetMapping("/editbook")
-	public String getPageForEditBooks(Model model) {
-		////Do something
-	return "books/add_books";
-	}
-//@PostMapping("/addbook")
-public String postEditBooks(Model model) {
-////Do something
-//return "redirect:/books";
-//}
-//////////////////////////////////////////////end add book////////////////////	
-=======
 //////////////////////////////////////////////start edit book////////////////////	
     @GetMapping("/editbook/{bookId}")
 	public String getPageForEditBooks(@PathVariable("bookId") int id, Model model) {
@@ -152,7 +138,6 @@ public String postEditBooks(Model model) {
 	return "redirect:/rentedbooks/"+theBook.getUserId();//will change
 	}
 //////////////////////////////////////////////end rent book////////////////////	
->>>>>>> 69e47ee331bafc67fb386c5ba6e2bead25f1c767
 	
 //////////////////////////////////////////////start rent books////////////////////	
 	@GetMapping("/rentedbooks/{theUserId}")
