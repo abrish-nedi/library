@@ -9,55 +9,88 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <title>Save LibraryUser</title>
+    <title>Sign Up</title>
+
+    <style>
+        body {
+            background-color: #f8f9fa; 
+        }
+        .navbar {
+            margin-bottom: 2rem; 
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            width: 100%; 
+            justify-content: center; 
+            font-size: 1.5rem; 
+        }
+        .navbar-brand img {
+            max-height: 70px;
+            margin-right: 15px;
+        }
+        .container {
+            max-width: 500px;
+            padding: 1rem;
+        }
+        .form-control {
+            margin-bottom: 1rem;
+        }
+        .btn-info {
+            width: 100%;
+        }
+        .alert {
+            margin-bottom: 1rem; 
+        }
+        .btn-primary {
+            width: 100%; 
+            margin-top: 1rem;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <div class="container mt-4">
-    <a class="navbar-brand" href="javascript:void(0)">Library App</a>
-    
-    <div class="d-flex justify-content-end">
-        <a th:href="@{/}" class="btn btn-primary d-flex">Sign out</a>
-    </div>
+  <div class="container">
+    <a class="navbar-brand" href="javascript:void(0)">
+        <img src="/assets/logo.png" alt="Library Logo">
+        Library App
+    </a>
   </div>
 </nav>
 
-    <div class="container">
-        <h3>Library App</h3>
-        <hr>
-        
-        <p class="h4 mb-4">Sign Up</p>
-        
-        <div th:if="${errormsg}">
-           <h3 th:class="text-danger">The Email is exist on our system, please use different email address.</h3>
-        </div>
-        
-        <form action="#" th:action="@{/signup}" th:object="${libraryuser}" method="POST">
-        
-             <input type="text" th:field="*{firstName}" th:required="true"
-                   class="form-control mb-4 w-25" placeholder="First name">
-
-            <input type="text" th:field="*{lastName}" th:required="true"
-                   class="form-control mb-4 w-25" placeholder="Last name">
-
-            <input type="text" th:field="*{email}" th:required="true"
-                   class="form-control mb-4 w-25" placeholder="Email">
-                   
-            <input type="text" th:field="*{password}" th:required="true"
-                   class="form-control mb-4 w-25" placeholder="Password">
-                   
-            <select id="dropdown" name="selectedOption" class="form-control mb-4 w-25">
-               <option th:each="option : ${options}" th:value="${option.value}" th:text="${option.displayMessage}"></option>
-            </select>
-
-            <button type="submit" class="btn btn-info col-2">Sign Up</button>
-            
-        </form>
-
-        <hr>
-        <a th:href="@{/}">Back to Home</a>
-        
+<div class="container">
+    <hr>
+    
+    <p class="h4 mb-4 text-center">Sign Up</p>
+    
+    <div th:if="${errormsg}" class="alert alert-danger">
+        <h5 class="mb-0">The Email already exists in our system. Please use a different email address.</h5>
     </div>
+
+    <form action="#" th:action="@{/signup}" th:object="${libraryuser}" method="POST">
+        <input type="text" th:field="*{firstName}" th:required="true"
+               class="form-control" placeholder="First name">
+
+        <input type="text" th:field="*{lastName}" th:required="true"
+               class="form-control" placeholder="Last name">
+
+        <input type="text" th:field="*{email}" th:required="true"
+               class="form-control" placeholder="Email">
+               
+        <input type="password" th:field="*{password}" th:required="true"
+               class="form-control" placeholder="Password">
+               
+        <select id="dropdown" name="selectedOption" class="form-control mb-4">
+            <option th:each="option : ${options}" th:value="${option.value}" th:text="${option.displayMessage}"></option>
+        </select>
+
+        <button type="submit" class="btn btn-info">Sign Up</button>
+    </form>
+
+	 <a th:href="@{/}" class="btn btn-primary">Back to Home</a>
+    <hr>
+
+</div>
 
 </body>
 

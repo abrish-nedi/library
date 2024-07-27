@@ -46,7 +46,7 @@ public class BookController {
         if(userId!=0) {
         LibraryUser theUser = userService.findById(userId);
         model.addAttribute("theUserId", userId);
-        if(null!=theUser && theUser.getUserType().equals("Admin")) {
+        if(null!=theUser && theUser.getUserType().equals("admin")) {
         	model.addAttribute("isAdmin", true);
         	model.addAttribute("isCustomer", false);
         }else {
@@ -82,16 +82,10 @@ public class BookController {
 		Book theBook= new Book();
 		model.addAttribute("thebook", theBook);	
 		
-        List<DropDownOption> typeList = new ArrayList<>();
-        typeList.add(new DropDownOption("Free", "Free"));
-        typeList.add(new DropDownOption("Rented", "Rented"));        
-        model.addAttribute("bookstatus", typeList);
-        model.addAttribute("selectedOption", new String());
 		return "books/add_books";
 	}
 	@PostMapping("/addbook")
-	public String postAddBooks(@RequestParam("selectedOption") String selectedOption, @ModelAttribute("libraryuser") Book theBook,Model model) {
-		theBook.setRentalStatus(selectedOption);
+	public String postAddBooks(@ModelAttribute("libraryuser") Book theBook,Model model) {
 		bookService.addBook(theBook);
 		return "redirect:/books/0";
 	}
@@ -106,17 +100,11 @@ public class BookController {
     	}
 		model.addAttribute("thebook", theBook);	
 		
-        List<DropDownOption> typeList = new ArrayList<>();
-        typeList.add(new DropDownOption("Free", "Free"));
-        typeList.add(new DropDownOption("Rented", "Rented"));        
-        model.addAttribute("bookstatus", typeList);
-        model.addAttribute("selectedOption", theBook.getRentalStatus());
         
 	return "books/edit_books";
 	}
 	@PostMapping("/editbook")
-	public String postEditBooks(@RequestParam("selectedOption") String selectedOption, @ModelAttribute("libraryuser") Book theBook,Model model) {
-		theBook.setRentalStatus(selectedOption);
+	public String postEditBooks(@ModelAttribute("libraryuser") Book theBook,Model model) {
 		bookService.addBook(theBook);
 	return "redirect:/books/0";
 	}

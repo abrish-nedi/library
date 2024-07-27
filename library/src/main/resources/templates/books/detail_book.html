@@ -9,59 +9,97 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <title>add books</title>
+    <title>Detail Book</title>
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            margin-bottom: 2rem; 
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .navbar-brand img {
+            max-height: 70px;
+            margin-right: 15px;
+        }
+        .container {
+            max-width: 500px;
+            padding: 1rem;
+        }
+        .form-control {
+            margin-bottom: 1rem; 
+        }
+        .btn-info {
+            width: 100%;
+        }
+        .btn-primary {
+            width: 100%; 
+            margin-top: 1rem;
+        }
+        .form-label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .btn-sm {
+            padding: 0.5rem 1rem; 
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <div class="container mt-4">
-    <a class="navbar-brand" href="javascript:void(0)">Library App</a>
-    
-    <div class="d-flex justify-content-end">
-        <a th:href="@{/}" class="btn btn-primary d-flex">Sign out</a>
+    <div class="container mt-4">
+        <a class="navbar-brand" href="javascript:void(0)">
+            <img src="/assets/logo.png" alt="Library Logo">
+            Library App
+        </a>
     </div>
-  </div>
 </nav>
 
-    <div class="container">
-        <h3>Library App</h3>
-        <hr>
+<div class="container">
+    <hr>
+    
+    <p class="h4 mb-4 text-center">Detail Book</p>
+    
+    <form action="#" th:action="@{/rent}" th:object="${thebook}" method="POST">
+        <input type="hidden" th:field="*{id}" th:required="true" class="form-control mb-4">
+        <input type="hidden" th:field="*{userId}" th:required="true" class="form-control mb-4">
+        <input type="hidden" th:field="*{copies}" th:required="true" class="form-control mb-4">
         
-        <p class="h4 mb-4">Detail Book</p> 
-                       
-          <form action="#" th:action="@{/rent}" th:object="${thebook}" method="POST">
+        <div class="mb-4">
+            <label class="form-label">Author</label>
+            <input type="text" th:field="*{author}" class="form-control" readonly>
+        </div>
         
-        <input type="hidden" th:field="*{id}" th:required="true"
-                   class="form-control mb-4 w-25" >
-       <input type="hidden" th:field="*{userId}" th:required="true"
-                   class="form-control mb-4 w-25" >
-          <input type="hidden" th:field="*{copies}" th:required="true"
-                   class="form-control mb-4 w-25" placeholder="Number Of Copies">
-          <input type="hidden" th:field="*{rentalStatus}" th:required="true"
-                   class="form-control mb-4 w-25" >
-                
-                <span>Author </span>   
-             <input type="text" th:field="*{author}" 
-                   class="form-control mb-4 w-25" readonly >
-<span>Genre </span> 
-            <input type="text" th:field="*{genre}" 
-                   class="form-control mb-4 w-25" readonly >
-<span>Title </span> 
-            <input type="text" th:field="*{title}" 
-                   class="form-control mb-4 w-25" readonly >
-              <span>Published Year </span>      
-            <input type="number" th:field="*{yearPublished}" 
-                   class="form-control mb-4 w-25" readonly >
-                   
+        <div class="mb-4">
+            <label class="form-label">Genre</label>
+            <input type="text" th:field="*{genre}" class="form-control" readonly>
+        </div>
 
-            <button type="submit" class="btn btn-info col-2">Rent</button>
-            
-        </form>
+        <div class="mb-4">
+            <label class="form-label">Title</label>
+            <input type="text" th:field="*{title}" class="form-control" readonly>
+        </div>
 
-        <hr>
-        <a th:href="@{/}">Back to Home</a>
-        
-    </div>
+        <div class="mb-4">
+            <label class="form-label">Published Year</label>
+            <input type="number" th:field="*{yearPublished}" class="form-control" readonly>
+        </div>
+
+        <button type="submit" class="btn btn-info">Rent</button>
+    </form>
+
+    <a th:href="@{/books/{userId}(userId=${theUserId})}" class="btn btn-primary btn-sm mb-3">Back to All Books</a>
+    <hr>
+</div>
 
 </body>
 
 </html>
+

@@ -28,13 +28,13 @@ public class Book {
 	@Column(name="rental_status")
 	private String rentalStatus;
 	@Column(name="user_id")
-	private int userId;
+	private Integer userId;
 	
 	public Book() {}
 
 	
 	public Book(int id, String author, String genre, String title, int yearPublished, int copies, String rentalStatus,
-			int userId) {
+			Integer userId) {
 		super();
 		this.id = id;
 		this.author = author;
